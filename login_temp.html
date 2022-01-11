@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %} 
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <title>ERP Home</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <!-- <h3 class="login-heading mb-4">Welcome back!</h3> -->
+              <h3 class="login-heading mb-4">Medi-Caps ERP</h3>
+              <form method='POST'> {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                  <label for="{{ form.username.id }}">Username</label>
+                  <!--<input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>-->
+                  {{ form.username }}
+                  {{ form.username.errors }}
+                </div>
+
+                <div class="form-group">
+                  <label for="{{ form.password.id }}">Password</label>
+                  <!--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
+                  {{ form.password }}
+                  {{ form.password.errors }}
+                </div>
+
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember password</label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" style="border-radius:3 r" >Sign in</button>
+                <div class="text-center">
+                  <a class="small" href="#">Forgot password?</a></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Bootstrap core JavaScript-->
+    <!--<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>-->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+</html>

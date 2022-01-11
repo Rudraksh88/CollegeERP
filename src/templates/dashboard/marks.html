@@ -1,0 +1,56 @@
+{% extends 'dashboard/layouts/base.html' %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title" style="font-weight:600">Course-wise Marks</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Course Id 
+                </th>
+                <th>
+                  Course Name
+                </th>
+                <th>
+                  MidSem-1
+                </th>
+                <th >
+                  MidSem-2
+                </th>
+                <th >
+                  Endsem
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in Markslist %}
+                 <tr> {%for subitem in item%}
+                    <td>{{subitem}}</td>
+                    {% endfor %}
+                 </tr>
+              {% endfor %}  
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
